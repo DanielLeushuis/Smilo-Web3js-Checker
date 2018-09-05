@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web3.ts Test</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+    <script src="./js/web3.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/web3.eth_calls.js"></script>
+    <script src="./js/web3.contract_calls.js"></script>
+    <script src="./js/web3.personal_calls.js"></script>
+    <script src="./js/web3.net_calls.js"></script>
+    <script src="./js/scripts.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="buttons-div">
+            <button type="button" onclick="showExampleContainer()">Example Contract</button>
+            <button type="button" onclick="showCompatibilityCheckContainer()">Compatibility Check</button>
+        </div>
+        <div class="example-container">
+            <h1>Web3.js Test Voting</h1>
+            <h2>Vote for your favorite candidate! 
+                If you can't see any candidates to vote for underneath this text something went wrong... 
+                Or you just have to wait 2 seconds. 
+                If you still don't see any candidates while you're still reading
+                this text you probably want to open your console and start debugging.
+            </h2>
+            <ul class="candidatesList">
+    
+            </ul>
+        </div>
+        <div class="compatibility-check-container">
+            <h1>Compatability check text</h1>
+            <h2>All RPC calls made by the Web3.js library are defined underneath. 
+                The script will make all calls and check three things: <br>
+                - Is the data sent as expected? <br>
+                - Is the RPC method available to be received on the node? <br>
+                - Do we receive data back from the node in the format Web3.js expects it? <br><br>
+
+                When using this script to develop your own node you can check scripts.js what to send. 
+                All RPC calls are made as HTTP calls so that we can check on the flow and what to send of each call.
+            </h2>
+            <div>
+                <input type="text" class="node-url" value="http://localhost:8545/">
+                <button type="button" class="test-button">Test node</button>
+            </div>
+            <div class="no-ganache-cli-info">
+                <p>It seems like the given address <span class="contract-address"></span> can't be connected to.</p>
+                <p>If you are not really sure what's going on please install ganache-cli as a test node for this script.</p>
+                <p>You can install ganache-cli from this page <a href="https://github.com/trufflesuite/ganache-cli">https://github.com/trufflesuite/ganache-cli</a></p>
+                <p>Run it after install with this command: <strong>ganache-cli</strong> from the terminal and refresh this page.</p>
+            </div>
+
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            
+            <div class="compat-content">
+                <div class="compat-card compat-contract-deploy">
+                    <h3 class="compat-section-header">Contract status</h3>
+                    <p>Newly deployed: <span class="compat-deploy-new"></span></p>
+                    <p>Contract address: <span class="compat-deploy-address"></span></p>
+                    <p class="compat-deploy-hash-p">Transaction hash: <span class="compat-deploy-hash"></span></p>
+                    <p>Contract ABI</p>
+                    <pre class="compat-contract-abi">
+
+                    </pre>
+                    <p>Contract code</p>
+                    <pre class="compat-contract-code">
+
+                    </pre>
+                    <h1>Succeeded calls: <span class="succeededcalls">0</span> / <span class="totalcalls">0</span></h1>
+                    <h1>Failed calls: <span class="failedcalls red">0</span> / <span class="totalcalls red">0</span></h1>
+                    <h1>Web3.JS Node compatability: <span class="compat-percentage"></span></h1>
+                </div>
+
+                <div class="compat-card">
+                    <h3 class="compat-section-header">Web3.CONTRACT</h3>
+                    <div class="web3-contract-1"></div>
+                    <div class="web3-contract-2"></div>
+                    <div class="web3-contract-3"></div>
+                    <div class="web3-contract-4"></div>
+                </div>
+
+                <div class="compat-card">
+                    <h3 class="compat-section-header">Web3.ETH</h3>
+                    <div class="web3-eth-1"></div>
+                    <div class="web3-eth-2"></div>
+                    <div class="web3-eth-3"></div>
+                    <div class="web3-eth-4"></div>
+                    <div class="web3-eth-5"></div>
+                    <div class="web3-eth-6"></div>
+                    <div class="web3-eth-7"></div>
+                    <div class="web3-eth-8"></div>
+                    <div class="web3-eth-9"></div>
+                    <div class="web3-eth-10"></div>
+                    <div class="web3-eth-11"></div>
+                    <div class="web3-eth-12"></div>
+                    <div class="web3-eth-13"></div>
+                    <div class="web3-eth-14"></div>
+                    <div class="web3-eth-15"></div>
+                    <div class="web3-eth-16"></div>
+                    <div class="web3-eth-17"></div>
+                    <div class="web3-eth-18"></div>
+                    <div class="web3-eth-19"></div>
+                    <div class="web3-eth-20"></div>
+                    <div class="web3-eth-21"></div>
+                    <div class="web3-eth-22"></div>
+                </div>
+
+                <div class="compat-card">
+                    <h3 class="compat-section-header">Web3.PERSONAL</h3>
+                    <div class="web3-personal-1"></div>
+                    <div class="web3-personal-2"></div>
+                </div>
+
+                <div class="compat-card">
+                    <h3 class="compat-section-header">Web3.NET</h3>
+                    <div class="web3-net-1"></div>
+                    <div class="web3-net-2"></div>
+                    <div class="web3-net-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
